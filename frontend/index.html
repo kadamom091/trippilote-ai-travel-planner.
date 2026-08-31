@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripPilote — Your AI Co-Pilot for Every Journey</title>
+  <meta name="description" content="TripPilote is an intelligent AI travel assistant that crafts personalized day-by-day itineraries, smart budget breakdowns, stay suggestions, and local transport guides in seconds.">
+  <meta name="theme-color" content="#0b1329">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" aria-label="TripPilote Home">
+        <div class="logo-icon-box">
+          <i data-lucide="compass" class="logo-icon"></i>
+          <span class="logo-sparkle">✈️</span>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">TripPilote</span>
+          <span class="brand-sub">AI TRAVEL CO-PILOT</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#planner" class="nav-link">Plan Trip</a></li>
+          <li class="nav-item"><a href="#destinations" class="nav-link">Destinations</a></li>
+          <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li class="nav-item"><a href="#assistant" class="nav-link">AI Assistant</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right CTA -->
+      <div class="header-actions">
+        <a href="#planner" class="btn btn-primary btn-sm header-cta">
+          <span>Plan My Trip</span>
+          <i data-lucide="sparkles"></i>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <i data-lucide="bot" class="badge-icon"></i>
+          <span>Next-Gen AI Travel Intelligence</span>
+        </div>
+
+        <h1 class="hero-title">
+          Plan Less. <span class="gradient-text">Explore More.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Let TripPilote create a personalized travel itinerary based on your destination, duration, budget, and interests in seconds.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#planner" class="btn btn-primary btn-lg">
+            <span>Plan My Trip ✈️</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="#features" class="btn btn-glass btn-lg">
+            <span>Explore Features</span>
+            <i data-lucide="compass"></i>
+          </a>
+        </div>
+
+        <!-- Hero Stats Badges -->
+        <div class="hero-stats-grid">
+          <div class="hero-stat-card">
+            <div class="stat-icon-wrap"><i data-lucide="zap"></i></div>
+            <div class="stat-content">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">AI Personalized</span>
+            </div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon-wrap"><i data-lucide="map-pin"></i></div>
+            <div class="stat-content">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Global Destinations</span>
+            </div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon-wrap"><i data-lucide="wallet"></i></div>
+            <div class="stat-content">
+              <span class="stat-number">Smart</span>
+              <span class="stat-label">Budget Optimization</span>
+            </div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon-wrap"><i data-lucide="star"></i></div>
+            <div class="stat-content">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Satisfaction Rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI TRIP PLANNER SECTION -->
+    <section class="planner-section" id="planner">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">
+            <i data-lucide="wand-2"></i>
+            <span>Interactive Itinerary Engine</span>
+          </div>
+          <h2 class="section-title">Build Your <span class="gradient-text">Perfect Trip</span></h2>
+          <p class="section-description">
+            Customize your journey parameters. Our AI co-pilot calculates day-by-day routes, budgets, stays, and transit.
+          </p>
+        </div>
+
+        <!-- Popular Destination Quick Pills -->
+        <div class="quick-dest-wrapper">
+          <span class="quick-dest-label"><i data-lucide="flame"></i> Popular:</span>
+          <div class="quick-pills-list">
+            <button type="button" class="quick-pill" data-dest="Goa">Goa 🏖️</button>
+            <button type="button" class="quick-pill" data-dest="Manali">Manali 🏔️</button>
+            <button type="button" class="quick-pill" data-dest="Mumbai">Mumbai 🏙️</button>
+            <button type="button" class="quick-pill" data-dest="Dubai">Dubai 🌆</button>
+            <button type="button" class="quick-pill" data-dest="Paris">Paris 🗼</button>
+            <button type="button" class="quick-pill" data-dest="Bali">Bali 🌴</button>
+            <button type="button" class="quick-pill" data-dest="Jaipur">Jaipur 🏰</button>
+            <button type="button" class="quick-pill" data-dest="London">London 🎡</button>
+          </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="planner-card">
+          <form id="trip-planner-form" novalidate>
+            <div class="form-grid">
+
+              <!-- 1. Destination -->
+              <div class="form-group col-12 col-md-6">
+                <label for="destination" class="form-label">
+                  <i data-lucide="map-pin"></i> Where do you want to go? <span class="required">*</span>
+                </label>
+                <div class="input-icon-wrap">
+                  <input 
+                    type="text" 
+                    id="destination" 
+                    name="destination" 
+                    class="form-input" 
+                    placeholder="e.g. Goa, Manali, Mumbai, Dubai, Paris, Bali..." 
+                    autocomplete="off"
+                    required
+                  >
+                  <button type="button" class="input-clear-btn" id="dest-clear-btn" title="Clear input" aria-label="Clear destination">
+                    <i data-lucide="x"></i>
+                  </button>
+                </div>
+                <span class="field-error" id="dest-error"></span>
+              </div>
+
+              <!-- 2. Number of Days -->
+              <div class="form-group col-12 col-md-3">
+                <label for="days" class="form-label">
+                  <i data-lucide="calendar"></i> Number of Days <span class="required">*</span>
+                </label>
+                <div class="stepper-input">
+                  <button type="button" class="stepper-btn" id="days-minus" aria-label="Decrease days">-</button>
+                  <input 
+                    type="number" 
+                    id="days" 
+                    name="days" 
+                    class="form-input text-center" 
+                    value="3" 
+                    min="1" 
+                    max="14" 
+                    required
+                  >
+                  <button type="button" class="stepper-btn" id="days-plus" aria-label="Increase days">+</button>
+                </div>
+                <span class="field-error" id="days-error"></span>
+              </div>
+
+              <!-- 3. Number of Travelers -->
+              <div class="form-group col-12 col-md-3">
+                <label class="form-label">
+                  <i data-lucide="users"></i> Travelers <span class="required">*</span>
+                </label>
+                <div class="traveler-selector" id="traveler-selector">
+                  <button type="button" class="traveler-btn" data-val="1">1</button>
+                  <button type="button" class="traveler-btn active" data-val="2">2</button>
+                  <button type="button" class="traveler-btn" data-val="3">3</button>
+                  <button type="button" class="traveler-btn" data-val="4">4</button>
+                  <button type="button" class="traveler-btn" data-val="5">5+</button>
+                </div>
+                <input type="hidden" id="travelers" name="travelers" value="2">
+                <span class="field-error" id="travelers-error"></span>
+              </div>
+
+              <!-- 4. Budget -->
+              <div class="form-group col-12 col-md-6">
+                <label for="budget" class="form-label">
+                  <i data-lucide="indian-rupee"></i> Total Approximate Budget <span class="required">*</span>
+                </label>
+                <div class="budget-input-wrap">
+                  <select id="currency-select" class="currency-dropdown" aria-label="Select Currency">
+                    <option value="INR" selected>₹ INR</option>
+                    <option value="USD">$ USD</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="GBP">£ GBP</option>
+                    <option value="AED">AED</option>
+                  </select>
+                  <input 
+                    type="number" 
+                    id="budget" 
+                    name="budget" 
+                    class="form-input budget-input" 
+                    placeholder="e.g. 15000" 
+                    value="15000"
+                    min="1000" 
+                    step="500"
+                    required
+                  >
+                </div>
+                <div class="budget-presets">
+                  <span>Quick:</span>
+                  <button type="button" class="preset-btn" data-budget="10000">₹10K</button>
+                  <button type="button" class="preset-btn" data-budget="20000">₹20K</button>
+                  <button type="button" class="preset-btn" data-budget="35000">₹35K</button>
+                  <button type="button" class="preset-btn" data-budget="60000">₹60K</button>
+                  <button type="button" class="preset-btn" data-budget="100000">₹1 Lakh</button>
+                </div>
+                <span class="field-error" id="budget-error"></span>
+              </div>
+
+              <!-- 5. Travel Style -->
+              <div class="form-group col-12 col-md-6">
+                <label for="travelStyle" class="form-label">
+                  <i data-lucide="compass"></i> Travel Style
+                </label>
+                <select id="travelStyle" name="travelStyle" class="form-select">
+                  <option value="Comfort" selected>Comfort (Balanced Quality & Value)</option>
+                  <option value="Budget">Budget (Cost-Effective & Smart)</option>
+                  <option value="Backpacking">Backpacking (Hostels & Local Experiences)</option>
+                  <option value="Luxury">Luxury (5-Star Stays & Fine Dining)</option>
+                  <option value="Adventure">Adventure (Trek, Sports & Action)</option>
+                  <option value="Family">Family Friendly (Comfort & Relaxed Pace)</option>
+                  <option value="Romantic">Romantic (Couples & Scenic Spots)</option>
+                  <option value="Solo">Solo Traveler (Freedom & Discovery)</option>
+                </select>
+              </div>
+
+              <!-- 6. Interests Multi-Select -->
+              <div class="form-group col-12">
+                <label class="form-label">
+                  <i data-lucide="heart"></i> Select Your Interests (Multi-select)
+                </label>
+                <div class="interests-grid" id="interests-grid">
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Beaches" checked>
+                    <span class="chip-label">🏖️ Beaches</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Mountains">
+                    <span class="chip-label">🏔️ Mountains</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Food" checked>
+                    <span class="chip-label">🍜 Food & Dining</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Shopping">
+                    <span class="chip-label">🛍️ Shopping</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="History">
+                    <span class="chip-label">🏛️ History & Forts</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Nature">
+                    <span class="chip-label">🌿 Nature & Parks</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Adventure">
+                    <span class="chip-label">🏄 Adventure Sports</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Nightlife">
+                    <span class="chip-label">🎉 Nightlife & Lounges</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Photography">
+                    <span class="chip-label">📸 Photography</span>
+                  </label>
+                  <label class="interest-chip">
+                    <input type="checkbox" name="interests" value="Culture">
+                    <span class="chip-label">🎭 Arts & Culture</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 7. Transportation Preference -->
+              <div class="form-group col-12">
+                <label for="transport" class="form-label">
+                  <i data-lucide="car"></i> Preferred Mode of Transport
+                </label>
+                <div class="transport-options" id="transport-options">
+                  <label class="transport-option">
+                    <input type="radio" name="transport" value="Mixed" checked>
+                    <span class="transport-box">
+                      <i data-lucide="layers"></i>
+                      <span>Mixed (Cab & Metro)</span>
+                    </span>
+                  </label>
+                  <label class="transport-option">
+                    <input type="radio" name="transport" value="Taxi/Cab">
+                    <span class="transport-box">
+                      <i data-lucide="car"></i>
+                      <span>Taxi / Cab</span>
+                    </span>
+                  </label>
+                  <label class="transport-option">
+                    <input type="radio" name="transport" value="Rental Vehicle">
+                    <span class="transport-box">
+                      <i data-lucide="key"></i>
+                      <span>Rental Scooter / Car</span>
+                    </span>
+                  </label>
+                  <label class="transport-option">
+                    <input type="radio" name="transport" value="Public Transport">
+                    <span class="transport-box">
+                      <i data-lucide="bus"></i>
+                      <span>Public Metro / Bus</span>
+                    </span>
+                  </label>
+                  <label class="transport-option">
+                    <input type="radio" name="transport" value="Train">
+                    <span class="transport-box">
+                      <i data-lucide="train"></i>
+                      <span>Train / Rail</span>
+                    </span>
+                  </label>
+                  <label class="transport-option">
+                    <input type="radio" name="transport" value="Flight">
+                    <span class="transport-box">
+                      <i data-lucide="plane"></i>
+                      <span>Flight</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Form Submit Button -->
+            <div class="form-submit-row">
+              <button type="submit" id="generate-btn" class="btn btn-primary btn-xl submit-btn">
+                <span class="btn-text">Generate My Itinerary ✨</span>
+                <i data-lucide="sparkles" class="btn-icon"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- DYNAMIC LOADING STATE OVERLAY -->
+        <div id="loading-overlay" class="loading-overlay hidden">
+          <div class="loading-modal">
+            <div class="loading-radar">
+              <div class="radar-circle"></div>
+              <div class="radar-pulse"></div>
+              <i data-lucide="plane" class="radar-plane"></i>
+            </div>
+            
+            <h3 class="loading-title">🤖 TripPilote is planning your journey...</h3>
+            
+            <div class="loading-steps-list">
+              <div class="step-item" id="step-1">
+                <i data-lucide="circle-dashed" class="step-icon"></i>
+                <span>Analyzing your travel preferences & style...</span>
+              </div>
+              <div class="step-item" id="step-2">
+                <i data-lucide="circle-dashed" class="step-icon"></i>
+                <span>Finding suitable attractions & local food gems...</span>
+              </div>
+              <div class="step-item" id="step-3">
+                <i data-lucide="circle-dashed" class="step-icon"></i>
+                <span>Optimizing daily routes & time-slots...</span>
+              </div>
+              <div class="step-item" id="step-4">
+                <i data-lucide="circle-dashed" class="step-icon"></i>
+                <span>Calculating budget breakdown & stay suggestions...</span>
+              </div>
+              <div class="step-item" id="step-5">
+                <i data-lucide="circle-dashed" class="step-icon"></i>
+                <span>Finalizing your personalized itinerary!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GENERATED ITINERARY RESULTS CONTAINER -->
+        <div id="itinerary-result" class="itinerary-result hidden">
+          <!-- Populated dynamically via script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DESTINATION EXPLORER SECTION -->
+    <section class="destinations-section" id="destinations">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">
+            <i data-lucide="globe"></i>
+            <span>Curated Hotspots</span>
+          </div>
+          <h2 class="section-title">Explore Top <span class="gradient-text">Destinations</span></h2>
+          <p class="section-description">
+            Discover hand-crafted travel guides. Click "Plan Trip" on any destination to instantly configure your itinerary.
+          </p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="dest-filter-tabs" id="dest-filter-tabs">
+          <button class="filter-tab active" data-category="all">All</button>
+          <button class="filter-tab" data-category="beaches">🏖️ Beaches</button>
+          <button class="filter-tab" data-category="mountains">🏔️ Mountains</button>
+          <button class="filter-tab" data-category="cities">🏙️ Metros</button>
+          <button class="filter-tab" data-category="historical">🏰 Heritage</button>
+          <button class="filter-tab" data-category="international">✈️ International</button>
+        </div>
+
+        <!-- Destination Cards Grid -->
+        <div class="dest-grid" id="dest-grid">
+          <!-- Goa -->
+          <div class="dest-card" data-category="beaches" data-dest="Goa">
+            <div class="dest-img-wrap">
+              <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&auto=format&fit=crop&q=80" alt="Goa Beaches" loading="lazy">
+              <span class="dest-tag-badge">Beaches & Shacks</span>
+            </div>
+            <div class="dest-body">
+              <div class="dest-meta">
+                <span class="dest-location"><i data-lucide="map-pin"></i> India</span>
+                <span class="dest-duration"><i data-lucide="clock"></i> 3–5 Days</span>
+              </div>
+              <h3 class="dest-name">Goa</h3>
+              <p class="dest-desc">Sun-kissed beaches, historic Portuguese quarters in Fontainhas, water sports, and sunset shacks.</p>
+              <div class="dest-footer">
+                <span class="dest-best-for"><strong>Best for:</strong> Nightlife & Relaxation</span>
+                <button class="btn btn-outline-primary btn-sm plan-dest-btn" data-dest="Goa" data-style="Adventure" data-days="4">Plan Trip</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manali -->
+          <div class="dest-card" data-category="mountains" data-dest="Manali">
+            <div class="dest-img-wrap">
+              <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&auto=format&fit=crop&q=80" alt="Manali Mountains" loading="lazy">
+              <span class="dest-tag-badge">Snow & Valleys</span>
+            </div>
+            <div class="dest-body">
+              <div class="dest-meta">
+                <span class="dest-location"><i data-lucide="map-pin"></i> Himachal Pradesh</span>
+                <span class="dest-duration"><i data-lucide="clock"></i> 4–6 Days</span>
+              </div>
+              <h3 class="dest-name">Manali</h3>
+              <p class="dest-desc">Snow-capped Himalayan peaks, pine forests, Solang adventure sports, Atal Tunnel, and serene cafes.</p>
+              <div class="dest-footer">
+                <span class="dest-best-for"><strong>Best for:</strong> Adventure & Nature</span>
+                <button class="btn btn-outline-primary btn-sm plan-dest-btn" data-dest="Manali" data-style="Adventure" data-days="4">Plan Trip</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mumbai -->
+          <div class="dest-card" data-category="cities" data-dest="Mumbai">
+            <div class="dest-img-wrap">
+              <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&auto=format&fit=crop&q=80" alt="Mumbai Gateway" loading="lazy">
+              <span class="dest-tag-badge">City of Dreams</span>
+            </div>
+            <div class="dest-body">
+              <div class="dest-meta">
+                <span class="dest-location"><i data-lucide="map-pin"></i> Maharashtra</span>
+                <span class="dest-duration"><i data-lucide="clock"></i> 3–4 Days</span>
+              </div>
+              <h3 class="dest-name">Mumbai</h3>
+              <p class="dest-desc">Gateway of India, Marine Drive sunsets, Victorian architecture, Bollywood energy, and mouth-watering street food.</p>
+              <div class="dest-footer">
+                <span class="dest-best-for"><strong>Best for:</strong> Culture & Street Food</span>
+                <button class="btn btn-outline-primary btn-sm plan-dest-btn" data-dest="Mumbai" data-style="Comfort" data-days="3">Plan Trip</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jaipur -->
+          <div class="dest-card" data-category="historical" data-dest="Jaipur">
+            <div class="dest-img-wrap">
+              <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&auto=format&fit=crop&q=80" alt="Jaipur Hawa Mahal" loading="lazy">
+              <span class="dest-tag-badge">The Pink City</span>
+            </div>
+            <div class="dest-body">
+              <div class="dest-meta">
+                <span class="dest-location"><i data-lucide="map-pin"></i> Rajasthan</span>
+                <span class="dest-duration"><i data-lucide="clock"></i> 3–4 Days</span>
+              </div>
+              <h3 class="dest-name">Jaipur</h3>
+              <p class="dest-desc">Royal palaces, majestic Amber Fort, iconic Hawa Mahal, vibrant handicraft bazaars, and Rajasthani hospitality.</p>
+              <div class="dest-footer">
+                <span class="dest-best-for"><strong>Best for:</strong> Royalty & Heritage</span>
+                <button class="btn btn-outline-primary btn-sm plan-dest-btn" data-dest="Jaipur" data-style="Comfort" data-days="3">Plan Trip</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dubai -->
+          <div class="dest-card" data-category="international" data-dest="Dubai">
+            <div class="dest-img-wrap">
+              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&auto=format&fit=crop&q=80" alt="Dubai Skyline" loading="lazy">
+              <span class="dest-tag-badge">Futuristic Luxury</span>
+            </div>
+            <div class="dest-body">
+              <div class="dest-meta">
+                <span class="dest-location"><i data-lucide="map-pin"></i> UAE</span>
+                <span class="dest-duration"><i data-lucide="clock"></i> 4–5 Days</span>
+              </div>
+              <h3 class="dest-name">Dubai</h3>
+              <p class="dest-desc">Burj Khalifa, dazzling desert safaris with dune bashing, luxury yacht marinas, and mega shopping malls.</p>
+              <div class="dest-footer">
+                <span class="dest-best-for"><strong>Best for:</strong> Luxury & Modern Wonders</span>
+                <button class="btn btn-outline-primary btn-sm plan-dest-btn" data-dest="Dubai" data-style="Luxury" data-days="4">Plan Trip</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paris -->
+          <div class="dest-card" data-category="international" data-dest="Paris">
+            <div class="dest-img-wrap">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&auto=format&fit=crop&q=80" alt="Paris Eiffel Tower" loading="lazy">
+              <span class="dest-tag-badge">City of Light</span>
+            </div>
+            <div class="dest-body">
+              <div class="dest-meta">
+                <span class="dest-location"><i data-lucide="map-pin"></i> France</span>
+                <span class="dest-duration"><i data-lucide="clock"></i> 4–6 Days</span>
+              </div>
+              <h3 class="dest-name">Paris</h3>
+              <p class="dest-desc">The Eiffel Tower, Seine River cruises, the Louvre masterpieces, romantic Montmartre streets, and Parisian bakeries.</p>
+              <div class="dest-footer">
+                <span class="dest-best-for"><strong>Best for:</strong> Romance & Art</span>
+                <button class="btn btn-outline-primary btn-sm plan-dest-btn" data-dest="Paris" data-style="Romantic" data-days="4">Plan Trip</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bali -->
+          <div class="dest-card" data-category="international" data-dest="Bali">
+            <div class="dest-img-wrap">
+              <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&auto=format&fit=crop&q=80" alt="Bali Rice Terraces" loading="lazy">
+              <span class="dest-tag-badge">Island of Gods</span>
+            </div>
+            <div class="dest-body">
+              <div class="dest-meta">
+                <span class="dest-location"><i data-lucide="map-pin"></i> Indonesia</span>
+                <span class="dest-duration"><i data-lucide="clock"></i> 5–7 Days</span>
+              </div>
+              <h3 class="dest-name">Bali</h3>
+              <p class="dest-desc">Spiritual Ubud temples, Tegalalang emerald rice terraces, cliffside Kecak dance at Uluwatu, and Seminyak beach clubs.</p>
+              <div class="dest-footer">
+                <span class="dest-best-for"><strong>Best for:</strong> Nature & Wellness</span>
+                <button class="btn btn-outline-primary btn-sm plan-dest-btn" data-dest="Bali" data-style="Comfort" data-days="5">Plan Trip</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- London -->
+          <div class="dest-card" data-category="international" data-dest="London">
+            <div class="dest-img-wrap">
+              <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&auto=format&fit=crop&q=80" alt="London Big Ben" loading="lazy">
+              <span class="dest-tag-badge">Royal Heritage</span>
+            </div>
+            <div class="dest-body">
+              <div class="dest-meta">
+                <span class="dest-location"><i data-lucide="map-pin"></i> United Kingdom</span>
+                <span class="dest-duration"><i data-lucide="clock"></i> 4–6 Days</span>
+              </div>
+              <h3 class="dest-name">London</h3>
+              <p class="dest-desc">Big Ben, London Eye, Tower Bridge, British Museum, West End theatre shows, and picturesque Thames walks.</p>
+              <div class="dest-footer">
+                <span class="dest-best-for"><strong>Best for:</strong> History & Culture</span>
+                <button class="btn btn-outline-primary btn-sm plan-dest-btn" data-dest="London" data-style="Comfort" data-days="4">Plan Trip</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">
+            <i data-lucide="sparkles"></i>
+            <span>Intelligent Co-Pilot</span>
+          </div>
+          <h2 class="section-title">Engineered for <span class="gradient-text">Effortless Travel</span></h2>
+          <p class="section-description">
+            TripPilote combines destination intelligence, realistic pricing models, and conversational AI to deliver seamless travel planning.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="cpu"></i>
+            </div>
+            <h3 class="feature-title">AI-Powered Planning</h3>
+            <p class="feature-desc">
+              Generates truly personalized itineraries based on your duration, travel style, interests, and group size.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="pie-chart"></i>
+            </div>
+            <h3 class="feature-title">Budget Optimization</h3>
+            <p class="feature-desc">
+              Breaks down costs across stays, food, transport, and activities, alerting you if estimated expenses exceed your target.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="calendar-check"></i>
+            </div>
+            <h3 class="feature-title">Day-by-Day Itinerary</h3>
+            <p class="feature-desc">
+              Structured time-slot schedules covering morning activities, afternoon exploration, and vibrant evening experiences.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="navigation"></i>
+            </div>
+            <h3 class="feature-title">Local Transportation</h3>
+            <p class="feature-desc">
+              Clear transit advice from airport transfers to local metro lines, auto-rickshaws, bike rentals, and walking routes.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="home"></i>
+            </div>
+            <h3 class="feature-title">Stay Recommendations</h3>
+            <p class="feature-desc">
+              Categorized accommodation suggestions for budget hostels, comfort boutique stays, and luxury resort estates.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i data-lucide="message-square"></i>
+            </div>
+            <h3 class="feature-title">AI Travel Assistant</h3>
+            <p class="feature-desc">
+              Chat live with TripPilote AI for packing guides, seasonal advice, route queries, and instant local recommendations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">
+            <i data-lucide="workflow"></i>
+            <span>Simple 4-Step Process</span>
+          </div>
+          <h2 class="section-title">How TripPilote <span class="gradient-text">Works</span></h2>
+          <p class="section-description">
+            From an initial spark of wanderlust to a comprehensive actionable itinerary in under 10 seconds.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-badge">01</div>
+            <div class="step-icon-wrap"><i data-lucide="map-pin"></i></div>
+            <h3 class="step-heading">Enter Destination</h3>
+            <p class="step-text">Choose from top curated destinations or enter any custom city across India and the globe.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-badge">02</div>
+            <div class="step-icon-wrap"><i data-lucide="wallet"></i></div>
+            <h3 class="step-heading">Set Budget & Duration</h3>
+            <p class="step-text">Specify your trip length (1–14 days), total budget, and number of accompanying travelers.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-badge">03</div>
+            <div class="step-icon-wrap"><i data-lucide="heart"></i></div>
+            <h3 class="step-heading">Tell Us Your Interests</h3>
+            <p class="step-text">Pick your favorite themes: beaches, mountains, food trails, nightlife, heritage, or adventure.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-badge">04</div>
+            <div class="step-icon-wrap"><i data-lucide="sparkles"></i></div>
+            <h3 class="step-heading">Get Your Itinerary</h3>
+            <p class="step-text">Receive a customized day-by-day plan with budget analysis, stay options, and PDF export.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI TRAVEL ASSISTANT CHATBOT SECTION -->
+    <section class="assistant-section" id="assistant">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">
+            <i data-lucide="bot"></i>
+            <span>Interactive Chat Co-Pilot</span>
+          </div>
+          <h2 class="section-title">Meet <span class="gradient-text">TripPilote AI</span></h2>
+          <p class="section-description">
+            Your 24/7 intelligent travel assistant. Ask questions, request recommendations, or explore packing tips.
+          </p>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-wrapper">
+          <div class="chat-card">
+            <!-- Chat Header -->
+            <div class="chat-header">
+              <div class="chat-bot-info">
+                <div class="chat-bot-avatar">
+                  <i data-lucide="bot"></i>
+                  <span class="bot-online-indicator"></span>
+                </div>
+                <div>
+                  <h3 class="chat-bot-name">TripPilote AI Assistant</h3>
+                  <span class="chat-bot-status">Online • Ready to help you explore</span>
+                </div>
+              </div>
+              <div class="chat-header-actions">
+                <button type="button" class="chat-clear-btn" id="chat-clear-btn" title="Clear Chat History">
+                  <i data-lucide="trash-2"></i>
+                  <span>Clear</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick Suggestion Chips -->
+            <div class="chat-suggestions" id="chat-suggestions">
+              <span class="suggestion-label"><i data-lucide="sparkles"></i> Try asking:</span>
+              <button type="button" class="chat-chip" data-prompt="What should I visit in Goa?">What should I visit in Goa?</button>
+              <button type="button" class="chat-chip" data-prompt="Plan a 5-day trip to Manali">Plan a 5-day trip to Manali</button>
+              <button type="button" class="chat-chip" data-prompt="What is the best time to visit Jaipur?">Best time to visit Jaipur?</button>
+              <button type="button" class="chat-chip" data-prompt="How can I travel around Mumbai?">How to travel around Mumbai?</button>
+            </div>
+
+            <!-- Chat Messages Log -->
+            <div class="chat-messages" id="chat-messages" role="log" aria-live="polite">
+              <!-- Initial Welcome Message -->
+              <div class="message-bubble bot-message">
+                <div class="message-avatar"><i data-lucide="bot"></i></div>
+                <div class="message-content">
+                  <p><strong>👋 Hello! I'm TripPilote AI, your personal travel co-pilot.</strong></p>
+                  <p>I can help you explore destinations, compare flight/metro routes, estimate realistic budgets, or provide packing checklists. Where are you planning to travel?</p>
+                  <span class="message-time">Just now</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Typing Indicator (Hidden by default) -->
+            <div class="chat-typing hidden" id="chat-typing">
+              <div class="typing-bubble">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="typing-text">TripPilote AI is typing...</span>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <form id="chat-form" class="chat-input-bar">
+              <input 
+                type="text" 
+                id="chat-input" 
+                class="chat-input" 
+                placeholder="Ask TripPilote anything about your trip... (e.g. Best time to visit Goa)" 
+                autocomplete="off"
+                required
+              >
+              <button type="submit" id="chat-send-btn" class="chat-send-btn" aria-label="Send message">
+                <i data-lucide="send"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-card">
+          <div class="about-content">
+            <div class="section-tag">
+              <i data-lucide="compass"></i>
+              <span>About TripPilote</span>
+            </div>
+            <h2 class="about-title">Intelligent Travel Planning for the <span class="gradient-text">Modern Explorer</span></h2>
+            <p class="about-text">
+              TripPilote was founded on a simple belief: planning a journey should be as enjoyable as taking it. By combining advanced travel heuristic models with intuitive user design, TripPilote eliminates hours of manual research, fragmented blog reading, and spreadsheet calculations.
+            </p>
+            <div class="about-features-list">
+              <div class="about-item">
+                <i data-lucide="check-circle-2"></i>
+                <span>Destination-aware dynamic itinerary generator</span>
+              </div>
+              <div class="about-item">
+                <i data-lucide="check-circle-2"></i>
+                <span>Real-time budget allocation & cost forecasting</span>
+              </div>
+              <div class="about-item">
+                <i data-lucide="check-circle-2"></i>
+                <span>Zero-clutter, accessible, responsive design</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-visual">
+            <div class="about-badge-card">
+              <i data-lucide="shield-check" class="about-badge-icon"></i>
+              <h4>100% Reliable</h4>
+              <p>Transparent estimates & genuine travel intelligence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">
+            <i data-lucide="mail"></i>
+            <span>Get In Touch</span>
+          </div>
+          <h2 class="section-title">Have Questions or <span class="gradient-text">Feedback?</span></h2>
+          <p class="section-description">
+            Reach out to the TripPilote team. We'd love to hear your feedback or explore partnership opportunities.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Column -->
+          <div class="contact-info-card">
+            <h3>Let's Connect</h3>
+            <p>Our travel engineering team is here to assist you with any inquiries or platform suggestions.</p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="method-icon"><i data-lucide="mail"></i></div>
+                <div>
+                  <strong>Email Us</strong>
+                  <p>support@trippilote.com</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="method-icon"><i data-lucide="map-pin"></i></div>
+                <div>
+                  <strong>Location</strong>
+                  <p>Bengaluru & Mumbai, India</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="method-icon"><i data-lucide="clock"></i></div>
+                <div>
+                  <strong>Response Time</strong>
+                  <p>Within 24 hours</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="contact-form-card">
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Your Name <span class="required">*</span></label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Alex Sharma" required>
+                <span class="field-error" id="contact-name-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address <span class="required">*</span></label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. alex@example.com" required>
+                <span class="field-error" id="contact-email-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Your Message <span class="required">*</span></label>
+                <textarea id="contact-message" name="message" class="form-textarea" rows="4" placeholder="How can we help you plan better?" required></textarea>
+                <span class="field-error" id="contact-message-error"></span>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="btn btn-primary btn-block">
+                <span>Send Message</span>
+                <i data-lucide="send"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo">
+            <div class="logo-icon-box">
+              <i data-lucide="compass" class="logo-icon"></i>
+            </div>
+            <div class="logo-text">
+              <span class="brand-name">TripPilote</span>
+            </div>
+          </a>
+          <p class="footer-tagline">"Your AI Co-Pilot for Every Journey."</p>
+          <p class="footer-mission">
+            Transforming travel planning with smart itineraries, budget foresight, and conversational AI co-pilots.
+          </p>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#planner">Plan Trip</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#assistant">AI Assistant</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Top Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="#planner" class="footer-dest-link" data-dest="Goa">Goa Itinerary</a></li>
+            <li><a href="#planner" class="footer-dest-link" data-dest="Manali">Manali Trip</a></li>
+            <li><a href="#planner" class="footer-dest-link" data-dest="Mumbai">Mumbai Guide</a></li>
+            <li><a href="#planner" class="footer-dest-link" data-dest="Jaipur">Jaipur Forts</a></li>
+            <li><a href="#planner" class="footer-dest-link" data-dest="Dubai">Dubai Safari</a></li>
+            <li><a href="#planner" class="footer-dest-link" data-dest="Paris">Paris Tour</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Connect With Us</h4>
+          <p class="footer-social-text">Follow our travel tech updates and travel tips:</p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+              <i data-lucide="github"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">© 2026 TripPilote. All rights reserved.</p>
+        <p class="footer-subtext">Built with precision for travelers worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
